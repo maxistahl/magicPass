@@ -1,0 +1,319 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body{
+	background: #f1f1f1;
+	color: #909090;
+	font-family: arial;
+    font-size: 14px;
+}
+
+label {
+    margin-bottom: 3px;
+    display: block;
+}
+
+input[type="email"] {
+    background: transparent;
+    border: 1px solid #ccc;
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: border 0.4s, color 0.4s, background 0.6s;
+    color: #ccc;
+    font-size: 14px;
+}
+
+input[type="email"]:focus {
+    border: 1px solid #009aff;
+    color: #003254;
+    outline: none;
+    background: rgba(255,255,255,0.6);
+}
+
+.content {
+    width: 300px;
+    margin: 50px auto;
+}
+
+.input-password {
+    position: relative;
+}
+
+.input {
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    height: 40px;
+    /* background: #999; */
+    width: 100%;
+    transition: color 0.6s;
+    box-sizing: border-box;
+    color: #ccc;
+    display: flex;
+}
+
+.input:before {
+    content: "";
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    border: 0 solid #ccc;
+    display: block;
+    margin: 5px 0;
+    float: left;
+    opacity: 0;
+    transition: opacity 0.4s, border 0.4s;
+}
+
+input[type="password"]:focus ~ .input:empty:before {
+    width: 26px;
+    height: 26px;
+    opacity: 1;
+    border: 2px solid #ccc;
+    animation: selection 2s;
+    animation-timing-function: ease-in-out;
+/*     animation-delay: 2s; */
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.focus-fx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border 0.5s;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+input[type="password"] ~ .focus-fx:before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    background: rgba(255,255,255,0.6);
+    margin: -25px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(3,1);
+    transition: transform 0.7s, opacity 0.7s;
+}
+
+input[type="password"]:focus ~ .focus-fx:before {
+    opacity: 1;
+    transform: scale(6,6);
+}
+
+input[type="password"]:focus ~ .input{
+	color: #003254;
+}
+
+input[type="password"]:focus ~ .focus-fx{
+	border: 1px solid #009aff;
+}
+
+.input i.fa {
+    line-height: 40px;
+    /*float: left;*/
+    padding: 60px 30px 0 0;
+    transition: padding 0.4s, transform 0.4s, opacity 0.4s, width 0.4s;
+    transform: rotateZ(190deg) scale(1.5,1.5);
+    /* transform-origin: 34px; */
+    width: 30px;
+    height: 40px;
+}
+
+.input i.fa.in-place {
+	width: 20px;
+    padding: 0 2px;
+    transform: rotateZ(0deg) scale(1,1);
+    animation: starWaiting 5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.input i.fa.in-place.selected:after {
+    content: "";
+    width: 26px;
+    height: 26px;
+    border: 2px solid transparent;
+    display: block;
+    border-radius: 50%;
+    margin: 5px 0 0 -6px;
+    transition: border-color 0.5s;
+}
+
+input[type="password"]:focus ~ .input i.fa.in-place.selected:after {
+    border: 2px solid #ccc;
+    animation: selection 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.input i.fa.in-place.removing {
+	padding: 0 2px;
+    transform: rotateZ(0deg) scale(1,1);
+    animation: starRemoving 0.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.input i.fa:before {
+    transform: rotateZ(0deg);
+    transition: transform 0.5s;
+    position: absolute;
+}
+
+.input i.fa.in-place.removing:before{
+	transform: rotateZ(190deg);
+}
+
+input[type="password"] {
+    position: absolute;
+    top: 0;
+    height: 40px;
+    border: none;
+    width: 100%;
+    opacity: 0;
+    left: 0;
+    z-index: 3;
+    
+/*
+    top: 50px;
+    opacity: 1;
+*/
+}
+
+@keyframes starWaiting{
+	0%{
+		transform: scale(1,1);
+		color: inherit;
+		padding: 0 2px;
+	}
+	5%{
+		transform: scale(0.8,1.2);
+		color: #009aff;
+		padding: 0 4px;
+	}
+	10%{
+		transform: scale(1.3,0.7);
+		padding: 0 0px;
+	}
+	15%{
+		transform: scale(0.9,1.1);
+		padding: 0 4px;
+	}
+	20%{
+		transform: scale(1,1);
+		color: inherit;
+		padding: 0 2px;
+	}
+}
+
+@keyframes starRemoving{
+	0%{
+		color: inherit;
+		padding: 0 2px;
+		margin-top: 0;
+		opacity: 1;
+		
+	}
+	45%{
+		margin-top: -13px;
+	}
+	50%{
+		margin-top: -15px;
+		color: fuchsia;
+		width: 20px;
+		padding: 0 2px;
+	}
+	55%{
+		margin-top: -13px;
+	}
+	65%{
+		opacity: 1;
+		width: 30px;
+	}
+	100%{
+		margin-top: 60px;
+		opacity: 0;
+		width: 0;
+		padding: 0 0;
+	}
+}
+
+@keyframes selection{
+	0%{
+		transform: scale(1,1);
+		color: inherit;
+	}
+	50%{
+		transform: scale(1.6,1.6);
+		border-color: #009aff;
+	}
+	20%{
+		transform: scale(1,1);
+		color: inherit;
+	}
+}

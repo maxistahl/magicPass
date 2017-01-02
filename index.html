@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<title>MagicPass</title>
+	<link rel="stylesheet" type="text/css" href="styles.css" media="all">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" src="js/magicPass.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#pass').magicPass();
+		});
+	</script>
+</head>
+
+<body>
+	
+	<div class="content">
+		<label for="email">Email:</label>
+		<input id="email" type="email" name="email" value="" placeholder="Email">
+		<label for="pass">Password:</label>
+		<input id="pass" type="password" name="password" value="" placeholder="Password">
+	</div>
+
+</body>
+</html>
